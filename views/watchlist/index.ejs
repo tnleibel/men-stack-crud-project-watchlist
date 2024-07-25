@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= user.username %>'s WatchList</title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Welcome to your WatchList</h1>
+    <h2><%= user.username %></h2>
+    <a href="/users/<%= user._id %>/watchlist/new">Add a Movie to Your WatchList!</a>
+    <% if(watchlist.length === 0) { %>
+        <p>Your WatchList is empty! Add some Movies!</p>
+    <% } %>
+    <ul>
+        <% watchlist.forEach((movie) => { %>
+            <li>
+                <a href="/users/<%= user._id %>/watchlist/<%= movie._id %>">
+                    <% if(movie.posterPath === undefined) { %>
+                        <img src="https://i.imgur.com/UHOnknf.png" width="250" height="375"/><br>
+                    <% } else { %>
+                    <img src="https://image.tmdb.org/t/p/w500<%= movie.posterPath %>" width="250" height="375"/>
+                    </a><br>
+                    <% } %>
+                <a href="/users/<%= user._id %>/watchlist/<%= movie._id %>">
+                <%= movie.name %>
+                </a>
+            </li>
+        <% }) %>
+    </ul>    
+</body>
+</html>

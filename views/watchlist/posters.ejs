@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+    <% posters.forEach((poster) => { %>
+        <li>
+            <form action="/users/<%= user._id %>/watchlist/<%= movie._id %>?_method=PUT" method="POST">
+                <img src="https://image.tmdb.org/t/p/w500<%= poster %>"/><br>
+                <input type="text" name="posterPath" id="posterPath" value="<%= poster %>"/>
+                <button type="submit">Choose this Poster</button>
+            </form>
+        </li>
+    <% }) %>    
+    </ul>
+</body>
+</html>

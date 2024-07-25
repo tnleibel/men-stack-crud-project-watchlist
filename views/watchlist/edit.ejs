@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit <%= movie.name %></title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <form action="/users/<%= user._id %>/watchlist/<%= movie._id %>?_method=PUT" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" value="<%= movie.name %>" required/>
+
+        <label for="isWatched">Watched?</label>
+        <input type="checkbox" name="isWatched" id="isWatched"/>
+
+        <label for="genre">Genre:</label>
+        <input type="text" name="genre" id="genre" value="<%= movie.genre %>"/>
+
+        <label for="director">Director:</label>
+        <input type="text" name="director" id="director" value="<%= movie.director %>"/>
+
+        <label for="yearReleased">Release Year:</label>
+        <input type="text" name="yearReleased" id="yearReleased" value="<%= movie.yearReleased %>"/>
+
+        <label for="notes">Review/Synopsis:</label>
+        <input type="textarea" name="notes" id="notes" value="<%= movie.notes %>"/>
+
+        <button type="submit">Edit Movie</button>
+    </form>
+</body>
+</html>

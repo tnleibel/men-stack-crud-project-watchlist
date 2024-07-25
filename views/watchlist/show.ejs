@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= movie.name %></title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1><%= movie.name %></h1>
+    <% if(movie.posterPath === undefined) { %>
+        <img src="https://i.imgur.com/UHOnknf.png" width="250" height="375"/><br>
+        <a href="/users/<%= user._id %>/watchlist/<%= movie._id %>/posters">Add a Poster</a>
+    <% } else { %>
+        <img src="https://image.tmdb.org/t/p/w500<%= movie.posterPath %>" width="250" height="375"/>
+    <% } %>
+    <% if(movie.isWatched) { %>
+        <p>Watched!</p>
+    <% } else { %>
+        <p>Not Watched</p>
+    <% } %>
+    <% if(movie.genre !== "") { %>
+        <p>Genre: <%= movie.genre %></p>
+    <% } %>
+
+    <% if(movie.director !== "") { %>
+        <p>Director: <%= movie.director %></p>
+    <% } %>
+
+    <% if(movie.yearReleased !== "") { %>
+        <p>Release Year: <%= movie.yearReleased %></p>
+    <% } %>
+
+    <% if(movie.notes !== "") { %>
+        <p>Review/Synopsis: <%= movie.notes %></p>
+    <% } %>
+    
+    <a href="/users/<%= user._id %>/watchlist/<%= movie._id %>/edit">Edit this Movie</a>
+    <form action="/users/<%= user._id %>/watchlist/<%= movie._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete this Movie</button>
+    </form>
+</body>
+</html>
