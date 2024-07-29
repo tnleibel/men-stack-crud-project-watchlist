@@ -4,30 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= user.username %>'s WatchList</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1>Welcome to your WatchList</h1>
-    <h2><%= user.username %></h2>
-    <a href="/users/<%= user._id %>/watchlist/new">Add a Movie to Your WatchList!</a>
+    <h1 class="header">Welcome to your WatchList</h1>
+    <h2 class="username"><%= user.username %></h2>
+    <a id="add-movie" href="/users/<%= user._id %>/watchlist/new">Add a Movie to Your WatchList!</a>
     <% if(watchlist.length === 0) { %>
         <p>Your WatchList is empty! Add some Movies!</p>
     <% } %>
-    <ul>
+    <ul class="flex-container">
         <% watchlist.forEach((movie) => { %>
-            <li>
+            <li class="flex-item">
                 <a href="/users/<%= user._id %>/watchlist/<%= movie._id %>">
+                    <div class="image-wrapper">
                     <% if(movie.posterPath === undefined) { %>
-                        <img src="https://i.imgur.com/UHOnknf.png" width="250" height="375"/><br>
+                        <img class="poster" src="https://i.imgur.com/UHOnknf.png" alt="Placeholder Movie Poster" width="250" height="375"/><br>
                     <% } else { %>
-                    <img src="https://image.tmdb.org/t/p/w500<%= movie.posterPath %>" width="250" height="375"/>
+                        <img class="poster" src="https://image.tmdb.org/t/p/w500<%= movie.posterPath %>" alt="Movie Poster" width="250" height="375"/>
                     </a><br>
                     <% } %>
-                <a href="/users/<%= user._id %>/watchlist/<%= movie._id %>">
+                    <% if(movie.isWatched === true) { %>
+                        <div class="is-watched">
+                        <img id="eye" src="/assets/eye-svgrepo-com.svg" alt="Eye"/>
+                        </div>
+                    <% } %>
+                    </div>
+                <a class="movie-name" href="/users/<%= user._id %>/watchlist/<%= movie._id %>">
                 <%= movie.name %>
-                </a>
+                </a><br>
             </li>
         <% }) %>
     </ul>    
 </body>
+<footer>
+    <img id="tmdb-header" src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg" alt="TMDB Attribution" width="213" height="27"/><br>
+</footer>
 </html>

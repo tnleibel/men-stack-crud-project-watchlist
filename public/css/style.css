@@ -1,0 +1,163 @@
+.header {
+    text-align: center;
+    font-family: "Oswald", sans-serif;
+}
+
+body {
+    /* background-color: #6f315e; */
+    /* background-color: #3d2937; */
+    background: rgb(61,41,55);
+background: linear-gradient(90deg, #483141 0%, #a85284 50%, #483141 100%);
+color: #eeeeee;
+position: relative;
+}
+
+li {
+    list-style-type: none;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    font-family: "Oswald", sans-serif;
+}
+
+a {
+    font-family: "Oswald", sans-serif;
+    font-weight: 600;
+    color: #eeeeee;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    font-family: "Oswald", sans-serif;
+    border-radius: 12px;
+}
+
+.username {
+    text-align: center;
+    font-family: "Oswald", sans-serif;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 16px;
+    padding: 16px;
+}
+
+.flex-item {
+    background: rgb(13,37,63);
+    background: linear-gradient(180deg, #0d253f 0%, #01b4e4 35%, #90cea1 100%);
+    border-radius: 17px;
+    padding: 5px;
+    text-align: center;
+    font-size: 18px;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.25);
+}
+
+.input-flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.flex-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: 10px;
+    padding: 10px;
+}
+
+.show-page-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-flex-container {
+    display: flex;
+    justify-content: center;
+}
+
+.users-flex-container {
+    display: flex;
+    justify-content: center;
+}
+
+.edit-link {
+    display: flex;
+    justify-content: center;
+}
+
+label {
+    font-family: "Oswald", sans-serif;
+}
+
+.poster {
+    border-radius: 12px;
+}
+
+.image-wrapper {
+    position: relative;
+}
+
+#tmdb-header {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 0;
+}
+
+.is-watched {
+    position: absolute;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    bottom: 5px;
+    right: 0;
+    width: 10%;
+    padding: 10px;
+    border-radius: 12px 0 12px 0;
+    border-top-width: 3px;
+    border-left-width: 3px;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-top-color: grey;
+    border-left-color: grey;
+}
+
+.flex-item a {
+    color: #483141;
+}
+
+.is-watched #eye {
+    width: 100%;
+}
+
+.movie-name {
+    color: #483141;
+    font-weight: 500;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+
+#add-movie {
+    display: flex;
+    justify-content: center;
+}
+
+#poster-picker {
+    display: flex;
+    justify-content: center;
+}

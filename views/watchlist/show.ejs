@@ -4,40 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= movie.name %></title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1><%= movie.name %></h1>
-    <% if(movie.posterPath === undefined) { %>
-        <img src="https://i.imgur.com/UHOnknf.png" width="250" height="375"/><br>
-        <a href="/users/<%= user._id %>/watchlist/<%= movie._id %>/posters">Add a Poster</a>
-    <% } else { %>
-        <img src="https://image.tmdb.org/t/p/w500<%= movie.posterPath %>" width="250" height="375"/>
-    <% } %>
-    <% if(movie.isWatched) { %>
-        <p>Watched!</p>
-    <% } else { %>
-        <p>Not Watched</p>
-    <% } %>
-    <% if(movie.genre !== "") { %>
-        <p>Genre: <%= movie.genre %></p>
-    <% } %>
+    <h1 class="header"><%= movie.name %></h1>
+    <div class="show-page-info">
+        <% if(movie.posterPath === undefined) { %>
+            <img class="poster" src="https://i.imgur.com/UHOnknf.png" alt="Placeholder Movie Poster" width="250" height="375"/><br>
+            <a href="/users/<%= user._id %>/watchlist/<%= movie._id %>/posters">Add a Poster</a>
+        <% } else { %>
+            <img class="poster" src="https://image.tmdb.org/t/p/w500<%= movie.posterPath %>" alt="Movie Poster" width="250" height="375"/>
+        <% } %>
+        <% if(movie.isWatched) { %>
+            <p>Watched!</p>
+        <% } else { %>
+            <p>Not Watched</p>
+        <% } %>
+        <% if(movie.genre !== "") { %>
+            <p>Genre: <%= movie.genre %></p>
+        <% } %>
 
-    <% if(movie.director !== "") { %>
-        <p>Director: <%= movie.director %></p>
-    <% } %>
+        <% if(movie.director !== "") { %>
+            <p>Director: <%= movie.director %></p>
+        <% } %>
 
-    <% if(movie.yearReleased !== "") { %>
-        <p>Release Year: <%= movie.yearReleased %></p>
-    <% } %>
+        <% if(movie.yearReleased !== "") { %>
+            <p>Release Year: <%= movie.yearReleased %></p>
+        <% } %>
 
-    <% if(movie.notes !== "") { %>
-        <p>Review/Synopsis: <%= movie.notes %></p>
-    <% } %>
-    
-    <a href="/users/<%= user._id %>/watchlist/<%= movie._id %>/edit">Edit this Movie</a>
-    <form action="/users/<%= user._id %>/watchlist/<%= movie._id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete this Movie</button>
+        <% if(movie.notes !== "") { %>
+            <p>Review/Synopsis: <%= movie.notes %></p>
+        <% } %>
+    </div>
+    <div class="edit-link">
+        <a href="/users/<%= user._id %>/watchlist/<%= movie._id %>/edit">Edit this Movie</a>
+    </div>
+    <form class="button-flex-container" action="/users/<%= user._id %>/watchlist/<%= movie._id %>?_method=DELETE" method="POST">
+        <button class="button" type="submit">Delete this Movie</button>
     </form>
 </body>
+<footer>
+    <img id="tmdb-header" src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg" alt="TMDB Attribution" width="213" height="27"/><br>
+</footer>
 </html>

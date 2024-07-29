@@ -4,29 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add a Movie to your WatchList</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Add a Movie to your WatchList</h1>
-    <form action="/users/<%= user._id %>/watchlist" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name" required/>
-
-        <label for="isWatched">Watched?</label>
-        <input type="checkbox" name="isWatched" id="isWatched"/>
-
-        <label for="genre">Genre:</label>
-        <input type="text" name="genre" id="genre"/>
-
-        <label for="director">Director:</label>
-        <input type="text" name="director" id="director"/>
-
-        <label for="yearReleased">Release Year:</label>
-        <input type="text" name="yearReleased" id="yearReleased"/>
-
-        <label for="notes">Review/Synopsis:</label>
-        <input type="textarea" name="notes" id="notes"/>
-
-        <button type="submit">Add Movie</button>
+    <h1 class="header">Add a Movie to your WatchList</h1>
+    <form class="input-flex-container" action="/users/<%= user._id %>/watchlist" method="POST">
+        <div class="new-page-form">
+            <div class="flex-input">
+                <label class="input-label" for="name">Name:</label>
+                <input class="input" type="text" name="name" id="name" required/>
+            </div>
+            <div class="flex-input">
+                <label class="input-label" for="isWatched">Watched?</label>
+                <input class="input" type="checkbox" name="isWatched" id="isWatched"/>
+            </div>
+            <div class="flex-input">
+                <label class="input-label" for="genre">Genre:</label>
+                <input class="input" type="text" name="genre" id="genre"/>
+            </div>
+            <div class="flex-input">
+                <label class="input-label" for="director">Director:</label>
+                <input class="input" type="text" name="director" id="director"/>
+            </div>
+            <div class="flex-input">
+                <label class="input-label" for="yearReleased">Release Year:</label>
+                <input class="input" type="text" name="yearReleased" id="yearReleased"/>
+            </div>
+            <div class="flex-input">
+                <label class="input-label" for="notes">Review/Synopsis:</label>
+                <input class="input" type="textarea" name="notes" id="notes"/>
+            </div>
+        </div>
+        <button class="button" type="submit">Add Movie</button>
     </form>
 </body>
 </html>
